@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="CheckOutAndRecentOrdersTest">
+    <test name="CheckOutRegressionOnEdge">
+        <classes>
+            <class name="CheckOutProcessesTest"/>
+        </classes>
+    </test>
+
+    <test name="RecentOrdersRegressionOnEdge">
+        <classes>
+            <class name="RecentOrdersTest"/>
+        </classes>
+    </test>
+    <test name="Test">
+
+        <parameter name="RegEmailParameter" value="ali@jjj.com"/>
+        <parameter name="RegPasswordParameter" value="Alimahmoud@"/>
+        <parameter name="RegFirstNameParameter" value="Ali"/>
+        <parameter name="RegSecondNameParameter" value="Abdelhakem"/>
+
+        <parameter name="LogEmailParameter" value="ali@jjj.com"/>
+        <parameter name="LogPasswordParameter" value="Alimahmoud@"/>
+
+        <classes>
+
+            <class name="LoginPageTest"/>
+        </classes>
+    </test>
+</suite>
