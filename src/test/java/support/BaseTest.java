@@ -13,12 +13,15 @@ public abstract class BaseTest {
     @BeforeClass(alwaysRun = true)
     public void startBrowser() {
         ChromeOptions options = new ChromeOptions();
-        if (Boolean.parseBoolean(System.getProperty("luma.headless", "false"))) {
+        boolean headless = Boolean.parseBoolean(System.getProperty("luma.headless", "false"));
+        if (headless) {
             options.addArguments("--headless=new", "--window-size=1920,1080");
         }
         options.addArguments("--disable-notifications");
         driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+        if (!headless) {
+            driver.manage().window().maximize();
+        }
         baseUrl = System.getProperty("luma.baseUrl", "https://luma.enablementadobe.com/");
         if (!baseUrl.endsWith("/")) {
             baseUrl += "/";

@@ -2,7 +2,10 @@ package Pages;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,10 +23,8 @@ public class CartCheckoutPage {
     }
 
     public void chooseProductOptions(String size, String color) {
-        wait.until(ExpectedConditions.elementToBeClickable(
-                By.cssSelector(".size-option[data-size='" + size + "']"))).click();
-        wait.until(ExpectedConditions.elementToBeClickable(
-                By.cssSelector(".color-option[data-color='" + color + "']"))).click();
+        clickOption(By.cssSelector(".size-option[data-size='" + size + "']"));
+        clickOption(By.cssSelector(".color-option[data-color='" + color + "']"));
     }
 
     public void addProductToCart() {
@@ -84,5 +85,16 @@ public class CartCheckoutPage {
         var element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         element.clear();
         element.sendKeys(value);
+    }
+
+    private void clickOption(By locator) {
+        WebElement option = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block: 'center', inline: 'center'});", option);
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(option)).click();
+        } catch (ElementClickInterceptedException exception) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);
+        }
     }
 }
