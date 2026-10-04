@@ -1,5 +1,8 @@
 # Adobe Luma Selenium QA Portfolio
 
+[![Smoke tests](https://github.com/fatmamosleh/automation-testing-project/actions/workflows/smoke-tests.yml/badge.svg)](https://github.com/fatmamosleh/automation-testing-project/actions/workflows/smoke-tests.yml)
+[![End-to-end test](https://github.com/fatmamosleh/automation-testing-project/actions/workflows/e2e-tests.yml/badge.svg)](https://github.com/fatmamosleh/automation-testing-project/actions/workflows/e2e-tests.yml)
+
 Java Selenium/TestNG automation for the [Adobe Luma demo store](https://luma.enablementadobe.com/). The project demonstrates Page Object Model design, reusable browser configuration, generated test data, explicit waits, TestNG groups, failure screenshots, Allure results, and GitHub Actions.
 
 ## Automated coverage
