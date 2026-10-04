@@ -1,29 +1,13 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="CheckOutAndRecentOrdersTest">
-    <test name="CheckOutRegressionOnEdge">
+<suite name="LumaRegressionSuite" preserve-order="true">
+    <test name="PublicStorefrontFeatures">
         <classes>
-            <class name="CheckOutProcessesTest"/>
+            <class name="StorefrontFeaturesTest"/>
         </classes>
     </test>
-
-    <test name="RecentOrdersRegressionOnEdge">
+    <test name="EndToEndPurchase">
         <classes>
-            <class name="RecentOrdersTest"/>
-        </classes>
-    </test>
-    <test name="Test">
-
-        <parameter name="RegEmailParameter" value="ali@jjj.com"/>
-        <parameter name="RegPasswordParameter" value="Alimahmoud@"/>
-        <parameter name="RegFirstNameParameter" value="Ali"/>
-        <parameter name="RegSecondNameParameter" value="Abdelhakem"/>
-
-        <parameter name="LogEmailParameter" value="ali@jjj.com"/>
-        <parameter name="LogPasswordParameter" value="Alimahmoud@"/>
-
-        <classes>
-
-            <class name="LoginPageTest"/>
+            <class name="EndToEndPurchaseTest"/>
         </classes>
     </test>
 </suite>
